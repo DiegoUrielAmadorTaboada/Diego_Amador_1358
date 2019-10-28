@@ -82,39 +82,43 @@ class ListaDoblementeEnlazada:
             encontrado = curr_Node
         return encontrado
 
-         
     def remove_from_head(self,value):
-        remover=0
         curr_Node = self.__head
         while curr_Node.data != value:
             curr_Node = curr_Node.next
-            
+
         if curr_Node.data == value:
-            curr_Node.head = curr_Node.next 
-            curr_Node.head.prev = None
-            
-            print(curr_Node,"->",end="")
-        else:
-            
-            curr_Node.tail = curr_Node.tail.prev
-            curr_Node.tail.next = None
-        
-        print(curr_Node.head,"->",end="")
-        
-        
-        #remover +=1
-            
-            
+            encontrado = True
 
-        
-    #def remove_from_tail(value):
+        if encontrado:
+            curr_Node.next.prev = curr_Node.prev
+            curr_Node.prev.next = curr_Node.next
+            return curr_Node.data
 
+    def remove_from_tail(self,value):
+        curr_Node = self.__tail
+        while curr_Node.data != value:
+            curr_Node = curr_Node.prev
+
+        if curr_Node.data == value:
+            encontrado = True
+
+        if encontrado:
+            curr_Node.next.prev = curr_Node.prev
+            curr_Node.prev.next = curr_Node.next
+            return curr_Node.data
         
-    #def insert_between(value,predecesor,sucesor):
+    def insert_between(self, value):
+        predecesor=self.__tail
+        sucesor=self.__head
+        nuevo = NodoDoble(value, predecesor.prev, sucesor.next)
+        sucesor.next.next = nuevo
+        predecesor.prev = nuevo
+        
+
+            
 
    
-
-        
 
 
 
