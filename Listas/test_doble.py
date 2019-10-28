@@ -14,7 +14,14 @@ def main():
     ldl.reverse_transversal()
     ldl.find_from_head(10)
     ldl.find_from_tail(30)
-    ldl.remove_from_head(30)
+    print("removiendo desde head: "+ str(ldl.remove_from_head(30)))
+    ldl.transversal()
+    print("removiendo desde tail: "+ str(ldl.remove_from_tail(20)))
+    ldl.transversal()
+    ldl.insert_between(100)
+    ldl.transversal()
+    ldl.insert_between(700)
+    ldl.transversal()
     
 
 main()
